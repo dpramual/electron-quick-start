@@ -23,8 +23,14 @@ To clone and run this repository you'll need [Git](https://git-scm.com) and [Nod
 git clone https://github.com/electron/electron-quick-start
 # Go into the repository
 cd electron-quick-start
-# Install dependencies and run the app
-npm install && npm start
+# Install Webpack in global scope
+npm install webpack -g
+# Install dependencies
+npm install
+# start webpack to monitor bundle change in one terminal
+npm run webpack-watch 
+# and run the app in another terminal
+npm start
 ```
 
 Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/latest).
