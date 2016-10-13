@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import WindowIpc from './windowIpc';
 import './AppFrame.css';
 
-
 export default class AppFrame extends Component {
 
   constructor(props) {
@@ -10,9 +9,12 @@ export default class AppFrame extends Component {
     this.state = {
         showRestoreBtn: false 
     }
+
+    this.handleMinimizeClick = this.handleMinimizeClick.bind(this);
+    this.handleMaximizeClick = this.handleMaximizeClick.bind(this);
+    this.handleRestoreClick = this.handleRestoreClick.bind(this);
+    this.handleCloseClick = this.handleCloseClick.bind(this);
   }
-
-
   componentWillMount() {
       console.log('componentWillMount')
   }
@@ -40,7 +42,7 @@ export default class AppFrame extends Component {
     console.log('on restore');
     this.setState({ showRestoreBtn : false });
     WindowIpc.restore();
-  }
+  }  
 
   render() {
     console.log("rendering app title = " + this.props.title + " url = " + this.props.url);
@@ -64,12 +66,12 @@ export default class AppFrame extends Component {
                       </div>
                       <div id="sysmenupanel">
                         <div>
-                          <button type="button" id="sysmenu_minBtn" onClick={this.handleMinimizeClick.bind(this)} ><span /></button>
+                          <button type="button" id="sysmenu_minBtn" onClick={this.handleMinimizeClick} ><span /></button>
                           { !this.state.showRestoreBtn ?
-                              <button type="button" id="sysmenu_maxBtn" onClick={this.handleMaximizeClick.bind(this)} ><span /></button> :
-                              <button type="button" id="sysmenu_restoreBtn" onClick={this.handleRestoreClick.bind(this)} ><span /></button>
+                              <button type="button" id="sysmenu_maxBtn" onClick={this.handleMaximizeClick} ><span /></button> :
+                              <button type="button" id="sysmenu_restoreBtn" onClick={this.handleRestoreClick} ><span /></button>
                           }
-                          <button type="button" id="sysmenu_closeBtn" onClick={this.handleCloseClick.bind(this)} ><span id="closeImg" /></button>
+                          <button type="button" id="sysmenu_closeBtn" onClick={this.handleCloseClick} ><span id="closeImg" /></button>
                         </div>
                       </div>
                     </div>                                    

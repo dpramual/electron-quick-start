@@ -28,7 +28,7 @@ npm install webpack -g
 # Install dependencies
 npm install
 # start webpack to monitor bundle change in one terminal
-npm run webpack--watch 
+npm run webpack-watch 
 # and run the app in another terminal
 npm start
 ```
